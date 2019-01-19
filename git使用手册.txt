@@ -1,1 +1,6 @@
-~·
+GIT远程仓库的使用(在与远程仓库做了互信的情况下)
+	1 初始化仓库：git init
+	2 设置远程仓库：git add remote [name] [url]
+	3 与远程仓库做同步：git fetch [name]
+	4 推送到远程仓库：git push [name] [branch]
+	
