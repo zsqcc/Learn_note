@@ -1,2 +1,39 @@
 Kubernetes资料阅读笔记
-	第一章 
+
+第一章 kubernetes入门
+	1.1.1 kubernetes概述
+		kubernetes是基于容器技术的分布式架构领先方案。kubernetes使用TCP通信，使得kubernetes不局限于语言，任何语言编写的服务，都可以映射为Service。kubernetes同时还是一个完备的分布式系统支撑平台，具有完备的集群管理能力，多层次安全防护和准入机制、多租户应用支撑能力、透明的服务注册和服务发现机制、智能负载均衡器、故障发现和自我修复能力、服务滚动升级和在线升级能力、可扩展的资源自动调度机制、多粒度资源配额管理能力。还提供了管理工具，涵盖了包括开发、测试部署、运维监控等环节。
+	1.1.2 kubernetes中基本概念
+		Service：分布式架构提供服务的基本单位，基于Socket通信方式对外提供服务，拥有以下关键特征
+			1唯一指定的名字(例如my-mysql-server)
+			2虚拟IP(Cluster IP、Service IP或VIP)和端口号
+			3能够提供某种远程服务能力
+			4被映射到提供服务能力的一组容器应用上
+		在k8s中，每个服务进程都有独立的Endpoint(IP+Port)访问点，但是我们通过Service(Cluster IP+Service Port)访问服务。这种方式和k8s内建的透明负载均衡和故障恢复机制，可以屏蔽后端服务故障，且使得服务IP地址不再改变。
+		Pod对象：包装服务进程具有以下特征
+			1标签(Label)，与Service定义标签选择器(Label Selector)呼应，解决了Service与Pod对应关系
+			2Node：为物理机或虚拟机，pod运行在node上。
+			3每个pid里运行一个Pause容器，pod里的其他容器则为业务容器，业务容器共享Pause容器的网络栈和Volume挂载卷(数据交换高效，可以将密切关联的服务进程放进同一个pod中)。
+		Master与Node：
+			在集群管理方面，k8s将集群中机器划分为Master节点和Node节点，master上运行着一组进程kube-apiserver、kube-controller-manager、kube-sheduler，这些进程实现了集群的资源管理、Pod调度、弹性伸缩、安全控制、系统监控及纠错等管理功能。Node运行N个k8s最小的运行单元pod，同时运行着一组kubelet、kube-proxy服务进程，负责Pod的创建、启动、监控、重启、销毁以及实现软件模式的负载均衡器。
+		服务扩容及服务升级：通过为pod创建RC，RC包括
+			目标Pod的定义
+			目标Pod的副本数量(Eplicas)
+			Pod的标签(Label)
+		ReplactionController创建完成后，k8s会通过Label筛选出pod，并根据replicas决定是否创建新的pod。
+	1.2.1 为什么使用k8s
+		结合Docker技术减少上线工作量。拥抱微服务架构，容易迁移上云。具有强大的横向扩容能力。
+
+	1.3.1 部署k8s
+		1关闭或者设置centos自带的防火墙的设置 systemctl disable firewalld / systemctl stop firewalld
+		2安装etcd与kubernetes(自动安装Docker) yum install -y etcd kubernetes
+		3修改/etc/systemconfig/docker配置。修改/etc/kubernetes/apiserver配置
+		4启动服务 systemctl start etcd / systemctl start docker / systemctl start kube-apiserver / systemctl start kube-controller-manager / systemctl start kubelet / systemctl start kubelet / systemctl start kube-proxy 
+		
+		
+			
+			
+		
+		
+	
+	
