@@ -3,11 +3,11 @@ def add_x(x):
 
 
 def test_py_demo1():
-    assert add_x(1) == 1
+    assert add_x(1) == 3
 
 
 def test_py_demo2():
-    assert add_x(1) == 2
+    assert add_x(1) == 3
 
 
 test_py_demo1()
