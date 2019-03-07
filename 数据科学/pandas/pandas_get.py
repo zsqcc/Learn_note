@@ -35,9 +35,11 @@ def get_dataframe():
     # 动态增加列
     data['density']=data['area']/data['pop']
     print(data)
-    # 行转置
+    # 矩阵转置
     print(data.T)
+    # 第一行
+    print(data.values[0])
     # 
-    
+    print(data['area'])
 get_series()
 get_dataframe()
