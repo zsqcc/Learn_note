@@ -24,5 +24,51 @@ def creat_series():
      # 创建标量数据
      data_scalar=pd.Series(5,index=range(5))
      print(data_scalar)
+     # Series对象只保存显示定义的键值对
+     data_t=pd.Series({2:'a',3:'g',1:'h'},index=[2,3,4])
+     print(data_t)
+
+# DataFrame是具有灵活的行索引及灵活列名的二维数组
+# 可看作多个Series累加
+def create_dataframe():
+    area_dict={"c":333,"b":555,"f":998}
+    area=pd.Series(area_dict)
+    popu_dict={"c":3303,"b":5505,"f":9908}
+    popu=pd.Series(popu_dict)
+    # 此dataframe为二维数组,colume为列索引，index为行索引
+    states=pd.DataFrame({"area":area,"popu":popu})
+    print(states)
+    print(states.index)
+    print(states.columns)
+    print(states["area"]["c"])
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
      
 creat_series()
+create_dataframe()
