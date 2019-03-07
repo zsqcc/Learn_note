@@ -6,7 +6,7 @@
 import pandas as pd
 
 # Series对象是一个带索引的一维数组 / 特殊的字典
-def creat_series():
+def create_series():
     # 创建
      data=pd.Series([0.25,0.5,0.75,1.0])
      # 属性
@@ -24,5 +24,16 @@ def creat_series():
      # 创建标量数据
      data_scalar=pd.Series(5,index=range(5))
      print(data_scalar)
-     
-creat_series()
+
+# index是一个不可变数组或有序集合
+def create_index():
+    ind=pd.Index([1,2,3,4])
+    print(ind)
+    # 具有集合操作属性
+    # & | # 交集、并集、异或
+    indA=pd.Index([1,2,3,4])
+    indB=pd.Index([3,4,6,7])
+    print(indA & indB)      
+    
+create_series()
+create_index()
