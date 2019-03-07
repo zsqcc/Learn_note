@@ -49,23 +49,5 @@ def create_dataframe():
     indB=pd.Index([3,4,6,7])
     print(indA & indB)      
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-     
+create_dataframe()    
 create_series()
