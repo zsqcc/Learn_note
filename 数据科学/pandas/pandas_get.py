@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    pandas的取值和选择
-"""
+pandas的取值和选择
 
+@author: shuquan.zhang
+"""
 import pandas as pd
 
 # Series提供多种取值方式
@@ -39,7 +40,17 @@ def get_dataframe():
     print(data.T)
     # 第一行
     print(data.values[0])
-    # 
+    # 索引方式取值
     print(data['area'])
+    # dataframe通过隐式/显示索引，可以实现类似numpy的功能，获取矩阵的数据,索引方式是左行右列
+    print(data.iloc[:2,:3])
+    print(data.loc[:'b',:'pop'])
+    # 使用ix达到混合索引,ix不被推荐使用
+    print(data.ix[:2,:'pop'])
+    # loc索引器中使用掩码和花哨
+    print(data.loc[data.area>0,['pop',]])
+    
+
+
 get_series()
 get_dataframe()

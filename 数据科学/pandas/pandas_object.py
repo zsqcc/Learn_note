@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-    pandas可以看作增强版numpy，其有Series、DataFrame、Index对象
-    Index对象：可看作不可变数组，其具备切片等功能
+pandas可以看作增强版numpy，其有Series、DataFrame、Index对象
+
+@author: shuquan.zhang
 """
 import pandas as pd
 
